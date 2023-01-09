@@ -23,8 +23,8 @@ contract Loan {
         require(token.transferFrom(borrower, lender, collateralAmount));
         require(msg.value == loanAmount);
         require(token.transferFrom(lender, borrower, loanAmount));
-        event LoanRequestAccepted(address loan);
-        emit LoanRequestAccepted(loan);
+        event LoanRequestAccepted();
+        emit LoanRequestAccepted();
 
 
     }
