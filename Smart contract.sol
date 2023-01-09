@@ -23,11 +23,13 @@ contract Loan {
         require(token.transferFrom(borrower, lender, collateralAmount));
         require(msg.value == loanAmount);
         require(token.transferFrom(lender, borrower, loanAmount));
+        event LoanRequestAccepted(address loan);
+        emit LoanRequestAccepted(address loan);
 
 
     }
 
-    event LoanRequestAccepted(address loan);
+   
 
 
     function payLoan() public payable {
@@ -38,8 +40,9 @@ contract Loan {
         require(msg.value == collateralAmount);
         require(token.transferFrom(lender, borrower, collateralAmount));
 
+        event LoanPaid();
         emit LoanPaid(); //used to log the transaction on the blockchain
 
     }
-    event LoanPaid();
+    
 }
