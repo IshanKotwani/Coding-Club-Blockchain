@@ -18,7 +18,7 @@ contract Loan {
 
     function Loan_request() public payable {
         require(msg.value == collateralAmount);
-        //loan = new Loan();
+        
         require(collateralAmount >= loanAmount, "Collateral amount needs to be greater than the amount to be borrowed");
         require(token.transferFrom(borrower, lender, collateralAmount));
         require(msg.value == loanAmount);
